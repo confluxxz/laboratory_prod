@@ -1,7 +1,0 @@
-from django.apps import AppConfig
-
-
-class ExperimentsConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'experiments'
-    verbose_name = 'Эксперименты'
