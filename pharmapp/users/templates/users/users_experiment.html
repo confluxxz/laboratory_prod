@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% load experiments_tags %}
+
+{% block content %}
+{% user_experiments request as experiments %}
+<div class="row">
+                        <div class="container mt-5">
+                            <div class="row justify-content-center">
+                                <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
+                                    <h3 class="text-center mb-4">Эксперимент</h3>
+                                    <div class="container" id="experiment-items-container">
+                                        <!-- Разметка корзины -->
+
+                                        {% if not experiments %}
+                                        <a class="btn btn-dark" href="{% url "works:create_work" %}">
+                                            Cоздать эксперимент
+                                        </a>
+                                        {% else %}
+                                        <a class="btn btn-dark" href="{% url "works:create_work" %}">
+                                            Изменить оформление эксперимента
+                                        </a>
+                                        <br>
+                                        {% endif %}
+                                        <br>
+                                        {% include "experiments/includes/included_experiment.html" %}
+                                        <!-- Закончилась разметка корзины , Разметка в шапке пользователя -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+{% endblock %}
